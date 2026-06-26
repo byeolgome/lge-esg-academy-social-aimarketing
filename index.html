@@ -1368,7 +1368,11 @@ async function fetchTrendIdeas(meta){
 
   let response = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+  "Content-Type": "application/json",
+  "x-api-key": "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",
+  "anthropic-version": "2023-06-01"
+},
     body: JSON.stringify({ ...baseBody, tools: [{ type: "web_search_20250305", name: "web_search" }] })
   });
 
@@ -1378,7 +1382,11 @@ async function fetchTrendIdeas(meta){
     // 웹 검색 도구가 이 환경에서 지원되지 않을 수 있으니, 도구 없이 한 번 더 시도
     response = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+  "Content-Type": "application/json",
+  "x-api-key": "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",
+  "anthropic-version": "2023-06-01"
+},
       body: JSON.stringify(baseBody)
     });
     usedSearch = false;
